@@ -1,4 +1,13 @@
 class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      viewPage: "home"
+    }
+    changePage = (event) =>{
+      this.setState ({viewPage: event})
+    }
+  }
   render () {
     const person = {
       avatar: "https://media.giphy.com/media/KI01DytlVPEw8/giphy-facebook_s.jpg",
@@ -6,7 +15,11 @@ class App extends React.Component {
       bio: "HEY NOW"
     }
     return (
-      <Header data={person}/>
+      <div>
+        <Top/>
+        <Header data={person}/>
+        <Footer/>
+      </div>
     )
   }
 }
