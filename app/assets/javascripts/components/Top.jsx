@@ -5,7 +5,7 @@ class Top extends React.Component {
         <span>Beeholder</span>
         <p>
         <span id='sub-heading'> Its where the eye is </span>
-        </p>  
+        </p>
       </header>
     )
   }
