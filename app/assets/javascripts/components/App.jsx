@@ -29,6 +29,7 @@ class App extends React.Component {
       <div>
         <Top/>
         <Header data={person}/>
+        <NewForm />
         <Footer/>
       </div>
     )
