@@ -9,7 +9,6 @@ class UserController < ApplicationController
 
   def create
     @user = set.new(user_params)
-
     if @user.save
       redirect_to @user, notice: "user successfully saved"
     else
