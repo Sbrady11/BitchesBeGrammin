@@ -1,6 +1,6 @@
 class Header extends React.Component {
   render () {
-    const { avatar, username, bio, posts} = this.props.data
+    const { avatar, username, bio, photos} = this.props.data
     return (
       <div className="header">
         <img className="avatar" src={avatar} alt=""/>
@@ -10,11 +10,11 @@ class Header extends React.Component {
             <span className="bio">{bio}</span>
           </li>
           <li>
-            {posts.map((post, i)=>
+            {photos.map((photo, i)=>
               <Photo
-                key={post.id}
-                pic={post.pic}
-                caption={post.caption}/>
+                key={photo.id}
+                pic={photo.pic}
+                caption={photo.caption}/>
               )}
           </li>
         </div>
