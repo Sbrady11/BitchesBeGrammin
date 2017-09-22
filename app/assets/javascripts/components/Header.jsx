@@ -5,18 +5,20 @@ class Header extends React.Component {
       <div className="header">
         <img className="avatar" src={avatar} alt=""/>
         <div className="username">
-          <li>
-            <span className="username">{username}</span>
-            <span className="bio">{bio}</span>
-          </li>
-          <li>
-            {photos.map((photo, i)=>
-              <Photo
-                key={photo.id}
-                pic={photo.pic}
-                caption={photo.caption}/>
-              )}
-          </li>
+          <ul className="unstyled">
+            <li>
+              <span className="username">{username}</span>
+              <span className="bio">{bio}</span>
+            </li>
+            <li>
+              {photos.map((photo)=>
+                <Photo
+                  key={photo.id}
+                  pic={photo.pic}
+                  caption={photo.caption}/>
+                )}
+            </li>
+          </ul>
         </div>
       </div>
     )

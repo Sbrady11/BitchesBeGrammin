@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(version: 20170921151116) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string "pic"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
     t.text "caption"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -45,7 +48,10 @@ ActiveRecord::Schema.define(version: 20170921151116) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "avatar"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.string "password"
     t.text "bio"
     t.datetime "created_at", null: false
