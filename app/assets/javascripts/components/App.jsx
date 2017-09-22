@@ -7,7 +7,6 @@ class App extends React.Component {
     this.changePage = this.changePage.bind(this)
   }
   changePage(event) {
-
     this.setState ({viewPage: event})
   }
   render () {
@@ -29,7 +28,7 @@ class App extends React.Component {
   if (this.state.viewPage === 'home'){
     return (
       <div>
-        <Header data={person}/>
+        <Top />
         <Footer changePage={this.changePage}/>
       </div>
     )
@@ -37,6 +36,7 @@ class App extends React.Component {
     return (
       <div>
         <Top/>
+        <NewForm />
         <Footer changePage={this.changePage}/>
       </div>
     )
