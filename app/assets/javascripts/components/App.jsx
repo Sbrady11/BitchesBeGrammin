@@ -4,9 +4,10 @@ class App extends React.Component {
     this.state = {
       viewPage: "home"
     }
-    changePage = (event) =>{
-      this.setState ({viewPage: event})
-    }
+    this.changePage = this.changePage.bind(this)
+  }
+  changePage(event) {
+    this.setState ({viewPage: event})
   }
   render () {
     const person = {
@@ -24,14 +25,29 @@ class App extends React.Component {
         }
       ]
     }
-
+  if (this.state.viewPage === 'home'){
+    return (
+      <div>
+        <Top />
+        <Footer changePage={this.changePage}/>
+      </div>
+    )
+  } else if (this.state.viewPage === 'post'){
+    return (
+      <div>
+        <Top/>
+        <NewForm />
+        <Footer changePage={this.changePage}/>
+      </div>
+    )
+  } else {
     return (
       <div>
         <Top/>
         <Header data={person}/>
-        <NewForm />
-        <Footer/>
+        <Footer changePage={this.changePage}/>
       </div>
     )
+    }
   }
 }

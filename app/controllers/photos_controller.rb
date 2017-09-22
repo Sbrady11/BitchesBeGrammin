@@ -1,12 +1,12 @@
 class PhotosController < ApplicationController
-  
+
   def index
     @photo = Photo.all
   end
 
   def show
   end
-  
+
   def new
     @photo = Photo.new
   end
@@ -36,7 +36,7 @@ class PhotosController < ApplicationController
     @photo.destroy
     redirect_to root_path
   end
-  
+
 
 private
   def photo_params
