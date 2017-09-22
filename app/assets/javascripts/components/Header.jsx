@@ -1,6 +1,6 @@
 class Header extends React.Component {
   render () {
-    const { avatar, username, bio, photos} = this.props.data
+    const { avatar, username, bio, photos } = this.props.data
     return (
       <div className="header">
         <img className="avatar" src={avatar} alt=""/>
