@@ -1,35 +1,25 @@
+require 'pry'
+
 class PhotosController < ApplicationController
 
   def index
-    @photo = Photo.all
+    @photos = Photo.all
+    render json: @photos
   end
 
   def show
-  end
-
-  def new
-    @photo = Photo.new
+    @photo = Photo.find_by(id: params[:id])
+    render json: @photo
   end
 
   def create
-    if @photo = Photo.create(Photo_params)
-      flash[:success] = "photo added"
-      redirect_to Photos_path
-    else
-      flash.now[:alert] = "Error, please try again"
-      render :new
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @photo.update(photo_params)
-      redirect_to photos_path
-    else
-      render :edit
-    end
+    encoded_string = params[:base64].split(',')[1]
+    image_type = params[:base64].split(',')[0][5..-8]
+    @photo = Photo.new
+    @photo.set_image(image_type, encoded_string)
+    @photo.caption = params[:caption]
+    @photo.save
+    render json: @photo
   end
 
   def destroy
@@ -37,9 +27,8 @@ class PhotosController < ApplicationController
     redirect_to root_path
   end
 
-
 private
   def photo_params
-    params.require(:photo).permit(:pic, :caption)
+    params.require(:photo).permit(:user_id, :photo, :caption)
   end
 end
